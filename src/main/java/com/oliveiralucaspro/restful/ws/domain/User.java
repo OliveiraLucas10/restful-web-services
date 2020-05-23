@@ -1,12 +1,16 @@
 package com.oliveiralucaspro.restful.ws.domain;
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class HelloWorldBean {
+public class User {
 
-    private String message;
+    private Integer id;
+    private String name;
+    private Date birthDate;
 
 }
