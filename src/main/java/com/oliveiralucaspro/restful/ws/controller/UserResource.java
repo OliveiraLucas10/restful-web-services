@@ -14,6 +14,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.oliveiralucaspro.restful.ws.domain.User;
 import com.oliveiralucaspro.restful.ws.domain.UserDaoService;
+import com.oliveiralucaspro.restful.ws.domain.UserNotFoundException;
 
 import lombok.RequiredArgsConstructor;
 
@@ -32,7 +33,13 @@ public class UserResource {
     // retrieve user by id
     @GetMapping("/users/{id}")
     public User getUserById(@PathVariable int id) {
-	return service.finOne(id);
+	User user = service.finOne(id);
+	if(user == null) {
+	    throw new UserNotFoundException("id-" + id);
+	}
+	
+	
+	return user;
     }
 
     @PostMapping("/users")
