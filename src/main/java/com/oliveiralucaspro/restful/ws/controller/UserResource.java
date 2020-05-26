@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.ResponseEntity.BodyBuilder;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,12 +35,20 @@ public class UserResource {
     @GetMapping("/users/{id}")
     public User getUserById(@PathVariable int id) {
 	User user = service.finOne(id);
-	if(user == null) {
+	if (user == null) {
 	    throw new UserNotFoundException("id-" + id);
 	}
-	
-	
+
 	return user;
+    }
+
+    // delete user by id
+    @DeleteMapping("/users/{id}")
+    public void deleteUserById(@PathVariable int id) {
+	User user = service.deleteByI(id);
+	if (user == null) {
+	    throw new UserNotFoundException("id-" + id);
+	}
     }
 
     @PostMapping("/users")

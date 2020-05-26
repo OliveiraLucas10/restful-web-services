@@ -2,6 +2,7 @@ package com.oliveiralucaspro.restful.ws.domain;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -34,5 +35,18 @@ public class UserDaoService {
 
     public User finOne(int id) {
 	return users.stream().filter(el -> el.getId() == id).findAny().orElse(null);
+    }
+    
+    public User deleteByI(int id) {
+	Iterator<User> iterator = users.iterator();
+	while(iterator.hasNext()) {
+	    User next = iterator.next();
+	    if(next.getId() == id) {
+		iterator.remove();
+		return next;
+	    }
+	}
+	
+	return null;
     }
 }
