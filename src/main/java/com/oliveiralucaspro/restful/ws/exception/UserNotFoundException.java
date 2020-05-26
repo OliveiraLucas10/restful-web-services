@@ -1,4 +1,4 @@
-package com.oliveiralucaspro.restful.ws.domain;
+package com.oliveiralucaspro.restful.ws.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

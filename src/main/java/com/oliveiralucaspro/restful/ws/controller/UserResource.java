@@ -14,7 +14,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.oliveiralucaspro.restful.ws.domain.User;
 import com.oliveiralucaspro.restful.ws.domain.UserDaoService;
-import com.oliveiralucaspro.restful.ws.domain.UserNotFoundException;
+import com.oliveiralucaspro.restful.ws.exception.UserNotFoundException;
 
 import lombok.RequiredArgsConstructor;
 
