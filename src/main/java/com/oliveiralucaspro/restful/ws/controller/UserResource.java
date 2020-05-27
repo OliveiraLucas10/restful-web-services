@@ -5,9 +5,9 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.boot.autoconfigure.web.ServerProperties.Tomcat.Resource;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.ResponseEntity.BodyBuilder;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,6 +41,13 @@ public class UserResource {
 	if (user == null) {
 	    throw new UserNotFoundException("id-" + id);
 	}
+	
+	// hateoas
+	// "all-users", server path + "/users"
+	// getAllUsers
+//	EntityModel<User> resource = new EntityModel<>(user);
+	
+	
 
 	return user;
     }
